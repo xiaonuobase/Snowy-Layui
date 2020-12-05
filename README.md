@@ -21,7 +21,7 @@
 ### 其他版本
 
 * 如果layui单体版本不适用您当前的开发模式，可以选择我们XiaoNuo生态系列框架中前后分离版本，开发更激进！
-* 快速前往：https://gitee.com/xiaonuobase/xiaonuo-layui
+* 快速前往：https://gitee.com/xiaonuobase/xiaonuo-vue
 * PS：我们的微服务框架还在路上，一样开源，如需关注最新动态可加入群聊探讨
 
 ### 快速启动
@@ -41,7 +41,7 @@
 ### 在线演示
 
 * 账号密码：superAdmin/123456，地址：http://xiaonuo.vip:83
-* 注意：因服务器数量暂少，演示环境暂时部署在官网上面
+* 注意：因服务器数量暂少，演示环境暂时部署在官网服务器上面
 
 ### 框架优势
 
