@@ -40,7 +40,7 @@
 
 ### 在线演示
 
-* 账号密码：superAdmin/123456，地址：https://layui.xiaonuo.vip
+* 账号密码：superAdmin/123456，地址：http://layui.xiaonuo.vip
 
 ### 框架优势
 
