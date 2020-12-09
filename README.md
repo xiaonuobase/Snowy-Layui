@@ -29,7 +29,7 @@
 您的开发电脑需要安装：Mysql5.7、Jdk1.8、maven3.6.3（配置阿里仓库地址）、开发工具推荐idea
 
 * 启动项目：打开application-local中配置数据库信息，运行XiaoNuoApplication类即可启动
-* 浏览器访问：http://localhost:83 
+* 浏览器访问：http://localhost:81 
 
 ### 框架说明及后续补充
 
