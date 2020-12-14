@@ -178,6 +178,7 @@
                 success: function (layero, dIndex) {
                     // 弹窗超出范围不出现滚动条
                     $(layero).children('.layui-layer-content').css('overflow', 'visible');
+                    $(layero).find('[lay-submit]').focus();
                 }
             });
         }
