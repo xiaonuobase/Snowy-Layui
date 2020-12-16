@@ -9,7 +9,7 @@ layui.config({  // common.js是配置layui扩展模块的目录，每个页面�
         if(obj.param.dataType === "html") {
             return true;
         } else {
-            handleNetworkError(res);
+            return handleNetworkError(res);
         }
     }
 }).extend({
