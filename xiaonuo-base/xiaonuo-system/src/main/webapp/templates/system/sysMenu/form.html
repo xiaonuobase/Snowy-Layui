@@ -196,13 +196,13 @@
         iconPicker.checkIcon('iconPicker', 'layui-icon-app');
 
         if(editData !== null && editData !== undefined) {
-            if(editData.icon !== null && editData.icon !== undefined) {
-                iconPicker.checkIcon('iconPicker', editData.icon);
-            }
             menuTypeDataRenderIns.setValue([editData.type]);
             menuWeightDataRenderIns.setValue([editData.weight]);
             menuApplicationDataRenderIns.setValue([editData.application]);
             handleMenuTypeView(editData.type.toString());
+            if(editData.icon !== null && editData.icon !== undefined) {
+                iconPicker.checkIcon('iconPicker', editData.icon);
+            }
         }
 
         function handleMenuTypeView(type) {
