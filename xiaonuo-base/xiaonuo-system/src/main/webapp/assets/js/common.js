@@ -9,39 +9,7 @@ layui.config({  // common.js是配置layui扩展模块的目录，每个页面�
         if(obj.param.dataType === "html") {
             return true;
         } else {
-            //关闭加载层
-            layui.layer.closeAll('loading');
-            if(res.code !== 0) {
-                if(res.success !== null && res.success !== undefined) {
-                    if(!res.success) {
-                        // 登录已过期，请重新登录
-                        if(res.code === 1011008) {
-                            window.location.href = "/";
-                        } else {
-                            layui.notice.msg(res.message, {icon: 2});
-                            return false;
-                        }
-                    }
-                } else {
-                    if(res.code === 500) {
-                        if(res.msg === "error") {
-                            layui.notice.msg("服务器出现异常，请联系管理员", {icon: 2});
-                            return false;
-                        }
-                    }
-                }
-            } else {
-                //网络错误
-                if(res.msg === "timeout") {
-                    layui.notice.msg("请求超时，请检查网络状态或后端是否开启断点", {icon: 2});
-                    return false;
-                }
-                if(res.msg === "error") {
-                    layui.notice.msg("网络错误，请检查网络连接", {icon: 2});
-                    return false;
-                }
-            }
-            return true;
+            handleNetworkError(res);
         }
     }
 }).extend({
@@ -116,6 +84,47 @@ function supportPreview(suffix) {
     result.push('gif');
     result.push('txt');
     return result.indexOf(suffix) !== -1;
+}
+
+// 网络错误处理
+function handleNetworkError(res) {
+    //关闭加载层
+    layui.layer.closeAll('loading');
+    if(res.code !== 0) {
+        if(res.success !== null && res.success !== undefined) {
+            if(!res.success) {
+                // 登录已过期，请重新登录
+                if(res.code === 1011008) {
+                    window.location.href = "/";
+                } else {
+                    if(res.message) {
+                        layui.notice.msg(res.message, {icon: 2});
+                    } else {
+                        layui.notice.msg("服务器出现异常，请联系管理员", {icon: 2});
+                    }
+                    return false;
+                }
+            }
+        } else {
+            if(res.code === 500) {
+                if(res.msg === "error") {
+                    layui.notice.msg("服务器出现异常，请联系管理员", {icon: 2});
+                    return false;
+                }
+            }
+        }
+    } else {
+        //网络错误
+        if(res.msg === "timeout") {
+            layui.notice.msg("请求超时，请检查网络状态", {icon: 2});
+            return false;
+        }
+        if(res.msg === "error") {
+            layui.notice.msg("网络错误，请检查网络连接", {icon: 2});
+            return false;
+        }
+    }
+    return true;
 }
 
 

@@ -197,7 +197,12 @@
             accept: 'file',
             url: 'upload',
             done: function(res){
-                renderList();
+                handleNetworkError(res);
+                if(res.success) {
+                    layer.msg(res.message, {icon: 1, time: 1000}, function () {
+                        renderList();
+                    });
+                }
             }
         });
 
