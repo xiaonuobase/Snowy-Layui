@@ -29,6 +29,7 @@ import cn.hutool.captcha.ShearCaptcha;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.URLUtil;
 import com.cn.xiaonuo.core.consts.CommonConstant;
 import com.cn.xiaonuo.core.context.constant.ConstantContextHolder;
 import com.cn.xiaonuo.core.context.login.LoginContextHolder;
@@ -43,6 +44,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
@@ -161,10 +163,17 @@ public class SysLoginController {
     @GetMapping("/getCaptcha")
     public void getCaptcha() throws IOException {
         //定义图形验证码的长、宽、验证码字符数、干扰线宽度
-        ShearCaptcha captcha = CaptchaUtil.createShearCaptcha(200, 100, 4, 4);
+        ShearCaptcha captcha = CaptchaUtil.createShearCaptcha(300, 100, 4, 4);
         HttpSession session = HttpServletUtil.getRequest().getSession();
         session.setAttribute(CommonConstant.CAPTCHA_SESSION_KEY, captcha.getCode());
-        ServletOutputStream outputStream = HttpServletUtil.getResponse().getOutputStream();
+        HttpServletResponse response = HttpServletUtil.getResponse();
+        response.reset();
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + URLUtil.encode("captcha.jpg") + "\"");
+        response.addHeader("Content-Length", "" + captcha.getImageBytes().length);
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
+        response.setContentType("application/octet-stream;charset=UTF-8");
+        ServletOutputStream outputStream = response.getOutputStream();
         captcha.write(outputStream);
     }
 }
