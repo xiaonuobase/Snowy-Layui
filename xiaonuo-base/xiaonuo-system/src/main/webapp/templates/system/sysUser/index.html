@@ -147,7 +147,7 @@
                 [
                     {type: 'checkbox'},
                     {field: 'id', title: 'id', hide:true, sort: true},
-                    {field: 'sysEmpInfo.orgId', title: 'orgId', hide:true, sort: true},
+                    {field: 'sysEmpInfo.orgId', title: 'orgId', hide:true, sort: true, templet: function (d) {  return d.sysEmpInfo.orgId; } },
                     {field: 'account', title: '账号', sort: true},
                     {field: 'name', title: '姓名', sort: true},
                     {field: 'sex', title: '性别', sort: true, templet: function (d) {  return xnUtil.rendDataTableDict(d.sex, 'sex'); } },
