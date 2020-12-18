@@ -70,8 +70,6 @@ public class IndexController {
             String token = authService.getTokenFromRequest(request);
             if(ObjectUtil.isNotNull(token)) {
                 model.addAttribute("tips", AuthExceptionEnum.LOGIN_EXPIRED.getMessage());
-            } else {
-                model.addAttribute("tips", AuthExceptionEnum.NOT_LOGIN.getMessage());
             }
             return "login/login.html";
         }
