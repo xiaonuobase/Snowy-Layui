@@ -29,26 +29,28 @@
     </div>
     <div class="layui-col-md6">
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">菜单权重</label>
-            <div class="layui-input-block">
+            <label class="layui-form-label layui-form-required" style="width: 100px">菜单权重<i class="layui-icon layui-icon-tips"
+                                                                       lay-tips="如果为业务权重，则超级管理员无法看到此菜单"
+                                                                       lay-direction="1" lay-offset="0,-10px" style="margin-left: 5px"></i></label>
+            <div class="layui-input-block" style="margin-left: 130px">
                 <div id="menuWeightBox"></div>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">所属应用</label>
-            <div class="layui-input-block">
+            <label class="layui-form-label layui-form-required" style="width: 100px">所属应用</label>
+            <div class="layui-input-block" style="margin-left: 130px">
                 <div id="menuApplicationBox"></div>
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label layui-form-required">排序</label>
-            <div class="layui-input-block">
+            <label class="layui-form-label layui-form-required" style="width: 100px">排序</label>
+            <div class="layui-input-block" style="margin-left: 130px">
                 <input name="sort" class="layui-input" type="number" placeholder="请输入排序" lay-verType="tips" lay-verify="required" required/>
             </div>
         </div>
         <div class="layui-form-item" id="iconBox" hidden>
-            <label class="layui-form-label">图标</label>
-            <div class="layui-input-block">
+            <label class="layui-form-label" style="width: 100px">图标</label>
+            <div class="layui-input-block" style="margin-left: 130px">
                 <input name="icon" id="icon" class="layui-input" lay-filter="iconPicker" placeholder="请输入图标"/>
             </div>
         </div>
