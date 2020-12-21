@@ -111,6 +111,13 @@ function handleNetworkError(res) {
                     return false;
                 }
             }
+
+            if(res.code === 404) {
+                if(res.msg === "error") {
+                    layui.notice.msg("资源路径不存在，请检查请求地址", {icon: 2});
+                    return false;
+                }
+            }
         }
     } else {
         //网络错误
