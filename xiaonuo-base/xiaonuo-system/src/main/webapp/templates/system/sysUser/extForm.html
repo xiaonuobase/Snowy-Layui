@@ -57,7 +57,7 @@
                 },
                 tips: '请选择附属机构'
             });
-        });
+        }, {async: false});
 
         // 渲染远程数据下拉
         var extPosDataRenderIns = {};
@@ -77,7 +77,7 @@
                 },
                 tips: '请选择附属职位'
             });
-        });
+        }, {async: false});
 
         if(editData !== null && editData !== undefined) {
             form.val('extForm', editData);

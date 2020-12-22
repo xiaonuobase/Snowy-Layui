@@ -144,7 +144,7 @@ layui.define(['jquery', 'admin', 'formX', 'xmSelect'], function (exports) {
                     },
                     hint: placeholderName
                 });
-            });
+            }, {async: false});
             return remoteDataRenderIns;
         },
 
