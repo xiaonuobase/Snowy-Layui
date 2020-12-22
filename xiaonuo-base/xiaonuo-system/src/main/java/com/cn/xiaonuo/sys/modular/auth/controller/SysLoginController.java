@@ -167,7 +167,6 @@ public class SysLoginController {
         HttpSession session = HttpServletUtil.getRequest().getSession();
         session.setAttribute(CommonConstant.CAPTCHA_SESSION_KEY, captcha.getCode());
         HttpServletResponse response = HttpServletUtil.getResponse();
-        response.reset();
         response.setHeader("Content-Disposition", "attachment; filename=\"" + URLUtil.encode("captcha.jpg") + "\"");
         response.addHeader("Content-Length", "" + captcha.getImageBytes().length);
         response.setHeader("Access-Control-Allow-Origin", "*");
