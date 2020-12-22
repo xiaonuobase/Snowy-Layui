@@ -116,12 +116,12 @@
                 admin.open({
                     title: '查看操作日志详情',
                     url: 'detail',
-                    area: ['800px'],
+                    area: ['1000px', '600px'],
                     data: { data: obj.data },     // 传递数据到表单页面
                     end: function () { },
                     success: function (layero, dIndex) {
-                        // 弹窗超出范围不出现滚动条
-                        $(layero).children('.layui-layer-content').css('overflow', 'visible');
+                        // 弹窗超出范围出现滚动条
+                        $(layero).children('.layui-layer-content').css('overflow', 'scroll');
                         $(layero).find('[lay-submit]').focus();
                     }
                 });

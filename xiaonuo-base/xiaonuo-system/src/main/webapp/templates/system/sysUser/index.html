@@ -243,7 +243,7 @@
             var layIndex = admin.open({
                 title: (data ? '修改' : '添加') + '用户',
                 url: 'form',
-                area: ['800px'],
+                area: ['1000px', '600px'],
                 data: { data: data },     // 传递数据到表单页面
                 end: function () {
                     var layerData = admin.getLayerData(layIndex, 'formOk');
@@ -252,8 +252,8 @@
                     }
                 },
                 success: function (layero, dIndex) {
-                    // 弹窗超出范围不出现滚动条
-                    $(layero).children('.layui-layer-content').css('overflow', 'visible');
+                    // 弹窗超出范围出现滚动条
+                    $(layero).children('.layui-layer-content').css('overflow', 'scroll');
                     $(layero).find('[lay-submit]').focus();
                 }
             });
