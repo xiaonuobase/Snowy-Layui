@@ -216,6 +216,31 @@ layui.define(['jquery', 'admin', 'formX', 'xmSelect'], function (exports) {
             rootData.children = data;
             resultData.push(rootData);
             return resultData;
+        },
+
+        /**
+         * 处理时间范围选择结果，要返回的数据，时间范围选择器元素，开始时间字段，结束时间字段
+         */
+        handleRangeDateSelectResult: function (data, elem, startTime, endTime) {
+            var tempStartTime = '';
+            var tempEndTime = '';
+            var tempStartEndTime = $(elem).val();
+            if(tempStartEndTime === ''){
+                tempStartTime = '';
+                tempEndTime = '';
+            }else{
+                tempStartTime = tempStartEndTime.split("~")[0].trim();
+                tempEndTime = tempStartEndTime.split("~")[1].trim();
+                if(tempStartTime === tempEndTime) {
+                    tempStartTime += " 00:00:00";
+                    tempEndTime += " 23:59:59";
+                } else {
+                    tempStartTime += " 00:00:00";
+                    tempEndTime += " 00:00:00";
+                }
+            }
+            data.field[startTime] = tempStartTime;
+            data.field[endTime] = tempEndTime;
         }
     };
 
