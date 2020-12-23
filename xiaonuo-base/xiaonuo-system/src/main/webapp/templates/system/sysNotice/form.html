@@ -194,7 +194,6 @@
             selectData.forEach(function (item) {
                 data.field.noticeUserIdList.push(item.value);
             });
-            console.log(data.field);
             admin.req(url, JSON.stringify(data.field), function(res){
                 layer.msg(res.message, {icon: 1, time: 1000}, function () {
                     window.location.href = '/sysNotice/index';
