@@ -47,8 +47,6 @@ import java.util.List;
  */
 public class IpAddressUtil {
 
-    private static final Log log = Log.get();
-
     private static final String LOCAL_IP = "127.0.0.1";
 
     private static final String LOCAL_REMOTE_HOST = "0:0:0:0:0:0:0:1";
@@ -100,7 +98,6 @@ public class IpAddressUtil {
             }
         } catch (Exception e) {
             resultJson = SymbolConstant.DASH;
-            log.error(">>> 根据ip定位异常，请求号为：{}，具体信息为：{}", RequestNoContext.get(), e.getMessage());
         }
         return resultJson;
     }
