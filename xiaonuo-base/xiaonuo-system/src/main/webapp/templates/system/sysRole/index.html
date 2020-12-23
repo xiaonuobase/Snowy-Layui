@@ -194,6 +194,7 @@
             var layIndex = admin.open({
                 title: '角色授权菜单',
                 url: 'grantMenu',
+                area: ['600px', '600px'],
                 data: { data: data },     // 传递数据到表单页面
                 end: function () {
                     var layerData = admin.getLayerData(layIndex, 'formOk');
@@ -214,6 +215,7 @@
             var layIndex = admin.open({
                 title: '角色授权数据',
                 url: 'grantData',
+                area: ['600px', '400px'],
                 data: { data: data },     // 传递数据到表单页面
                 end: function () {
                     var layerData = admin.getLayerData(layIndex, 'formOk');
