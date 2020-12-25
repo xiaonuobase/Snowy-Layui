@@ -72,14 +72,15 @@
             cols: [
                 [
                     {type: 'checkbox'},
-    #foreach ($column in $tableField)
-        #if (${column.primaryKeyFlag})
-            {field: '${column.columnName}', title: '${column.columnComment}', hide:true, sort: true},
-        #else
-            {field: '${column.columnName}', title: '${column.columnComment}', sort: true},
-        #end
-    #end
-            {title: '操作', toolbar: '#tableBar', align: 'center', width: 200, minWidth: 200}
+#foreach ($column in $tableField)
+#if (${column.primaryKeyFlag})
+                    {field: '${column.columnName}', title: '${column.columnComment}', hide:true, sort: true},
+#else
+                    {field: '${column.columnName}', title: '${column.columnComment}', sort: true},
+#end
+#end
+
+                    {title: '操作', toolbar: '#tableBar', align: 'center', width: 200, minWidth: 200}
                 ]
             ],
             done: function(res, curr, count) {
@@ -101,12 +102,12 @@
                     skin: 'layui-layer-admin',
                     shade: .1
                 }, function () {
-    #foreach ($column in $tableField)
-        #if (${column.primaryKeyFlag})
-            admin.req('${className}/delete', JSON.stringify([{'${column.columnName}': obj.data.${column.columnName}}]), function(res){
-        #end
-    #end
-                layer.msg(res.message, {icon: 1, time: 1000}, function () {
+#foreach ($column in $tableField)
+#if (${column.primaryKeyFlag})
+                    admin.req('${className}/delete', JSON.stringify([{'${column.columnName}': obj.data.${column.columnName}}]), function(res){
+#end
+#end
+                    layer.msg(res.message, {icon: 1, time: 1000}, function () {
                         insTb.reload();
                     });
                 }, 'post');
@@ -135,9 +136,9 @@
                 }, function () {
                     var ids = checkRows.data.map(function (d) {
 #foreach ($column in $tableField)
-    #if (${column.primaryKeyFlag})
-    return {"${column.columnName}": d.${column.columnName}};
-    #end
+#if (${column.primaryKeyFlag})
+                        return {"${column.columnName}": d.${column.columnName}};
+#end
 #end
                     });
                     admin.req('${className}/delete', JSON.stringify(ids), function(res){

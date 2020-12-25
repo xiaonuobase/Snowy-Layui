@@ -2,14 +2,14 @@
 
 #foreach ($column in $tableField)
 #if (${column.primaryKeyFlag})
-<input name="${column.columnName}" type="hidden"/>
+    <input name="${column.columnName}" type="hidden"/>
 #else
-<div class="layui-form-item">
-    <label class="layui-form-label layui-form-required">${column.columnComment}</label>
-    <div class="layui-input-block">
-        <input name="${column.columnName}" class="layui-input" placeholder="请输入${column.columnComment}" lay-verType="tips" lay-verify="required" required/>
+    <div class="layui-form-item">
+        <label class="layui-form-label layui-form-required">${column.columnComment}</label>
+        <div class="layui-input-block">
+            <input name="${column.columnName}" class="layui-input" placeholder="请输入${column.columnComment}" lay-verType="tips" lay-verify="required" required/>
+        </div>
     </div>
-</div>
 #end
 #end
     <div class="layui-form-item text-right">
