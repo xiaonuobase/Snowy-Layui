@@ -20,12 +20,14 @@
             <!-- 表格工具栏 -->
             <form class="layui-form toolbar">
                 <div class="layui-form-item">
+#foreach ($column in $tableField)
                     <div class="layui-inline">
-                        <label class="layui-form-label">名称:</label>
+                        <label class="layui-form-label">${column.columnComment}:</label>
                         <div class="layui-input-inline">
-                            <input name="name" class="layui-input" placeholder="请输入名称"/>
+                            <input name="${column.columnName}" class="layui-input" placeholder="请输入${column.columnComment}"/>
                         </div>
                     </div>
+#end
                     <div class="layui-inline">&emsp;
                         <button class="layui-btn icon-btn" lay-filter="tableSearch" lay-submit>
                             <i class="layui-icon">&#xe615;</i>搜索
@@ -79,7 +81,6 @@
                     {field: '${column.columnName}', title: '${column.columnComment}', sort: true},
 #end
 #end
-
                     {title: '操作', toolbar: '#tableBar', align: 'center', width: 200, minWidth: 200}
                 ]
             ],
