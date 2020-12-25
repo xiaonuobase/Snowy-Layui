@@ -27,7 +27,7 @@ package com.cn.xiaonuo.core.consts;
 /**
  * 通用常量
  *
- * @author xuyuxiang
+ * @author xuyuxiang yubaoshan
  * @date 2020/3/11 16:51
  */
 public interface CommonConstant {
@@ -146,4 +146,9 @@ public interface CommonConstant {
      * 验证码键值
      */
     String CAPTCHA_SESSION_KEY = "CAPTCHA_SESSION_KEY";
+
+    /**
+     * 数据库链接URL标识
+     */
+    String DATABASE_URL_NAME = "DATABASE_URL_NAME";
 }
