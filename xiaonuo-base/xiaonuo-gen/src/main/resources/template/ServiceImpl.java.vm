@@ -26,12 +26,9 @@ package ${packageName}.${modularName}.${busName}.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cn.xiaonuo.core.consts.CommonConstant;
-import com.cn.xiaonuo.core.enums.CommonStatusEnum;
 import com.cn.xiaonuo.core.exception.ServiceException;
 import com.cn.xiaonuo.core.factory.PageFactory;
 import com.cn.xiaonuo.core.pojo.page.PageResult;
@@ -42,7 +39,6 @@ import ${packageName}.${modularName}.${busName}.param.${ClassName}Param;
 import ${packageName}.${modularName}.${busName}.service.${ClassName}Service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import javax.annotation.Resource;
 import java.util.List;
 
 /**

@@ -264,12 +264,12 @@ public class CodeGenerateServiceImpl extends ServiceImpl<CodeGenerateMapper, Cod
         //实例化一个VelocityEngine对象
         VelocityEngine velocityEngine=new VelocityEngine(properties);
 
-        String[] filePath = Config.xnCodeGenFilePath(xnCodeGenParam.getClassName().toLowerCase(), xnCodeGenParam.getPackageName());
+        String[] filePath = Config.xnCodeGenFilePath(xnCodeGenParam.getBusName(), xnCodeGenParam.getPackageName());
         for (int i = 0; i < filePath.length; i++) {
             String templateName = Config.xnCodeGenTempFile[i];
 
             String fileBaseName = ResetFileBaseName(xnCodeGenParam.getClassName(),
-                    templateName.substring(templateName.indexOf("/") + 1, templateName.lastIndexOf(TEMP_SUFFIX)));
+                    templateName.substring(templateName.indexOf(Config.FILE_SEP) + 1, templateName.lastIndexOf(TEMP_SUFFIX)));
             File file = new File(Config.getLocalPath () + filePath[i] + fileBaseName);
 
             //判断是否覆盖存在的文件
@@ -299,12 +299,12 @@ public class CodeGenerateServiceImpl extends ServiceImpl<CodeGenerateMapper, Cod
         Util.initVelocity();
         XnVelocityContext context = new XnVelocityContext();
 
-        String[] filePath = Config.xnCodeGenFilePath(xnCodeGenParam.getClassName().toLowerCase(), xnCodeGenParam.getPackageName());
+        String[] filePath = Config.xnCodeGenFilePath(xnCodeGenParam.getBusName(), xnCodeGenParam.getPackageName());
         for (int a = 0; a < filePath.length; a++) {
             String templateName = Config.xnCodeGenTempFile[a];
 
             String fileBaseName = ResetFileBaseName(xnCodeGenParam.getClassName(),
-                    templateName.substring(templateName.indexOf("/") + 1, templateName.lastIndexOf(TEMP_SUFFIX)));
+                    templateName.substring(templateName.indexOf(Config.FILE_SEP) + 1, templateName.lastIndexOf(TEMP_SUFFIX)));
             XnZipOutputStream(context.createVelContext(xnCodeGenParam),
                     Config.templatePath + templateName,
                     filePath[a] + fileBaseName,
