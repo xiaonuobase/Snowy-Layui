@@ -93,7 +93,7 @@ function handleNetworkError(res) {
         if(res.success !== null && res.success !== undefined) {
             if(!res.success) {
                 // 登录已过期，请重新登录
-                if(res.code === 1011008) {
+                if(res.code === 1011008 || res.code === 1011004) {
                     window.location.href = "/";
                 } else {
                     if(res.message) {
