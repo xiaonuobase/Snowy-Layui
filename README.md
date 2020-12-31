@@ -20,9 +20,9 @@
 
 ### 其他版本
 
-* 如果layui单体版本不适用您当前的开发模式，可以选择我们XiaoNuo生态系列框架中前后分离版本，开发更激进！
-* 快速前往：https://gitee.com/xiaonuobase/xiaonuo-vue
-* PS：我们的微服务框架还在路上，一样开源，如需关注最新动态可加入群聊探讨
+* layui单体版本：https://gitee.com/xiaonuobase/xiaonuo-layui
+* vue前后分离版本：https://gitee.com/xiaonuobase/xiaonuo-vue
+* cloud微服务前后分离版本：https://gitee.com/xiaonuobase/xiaonuo-cloud
 
 ### 快速启动
 
@@ -66,7 +66,7 @@
 6. 基于hibernate validator实现的校验框架，支持自定义校验注解。
 7. 提供Request-No的响应header快速定位线上异常问题。
 8. 在线用户可查，可在线踢人，同账号登录可同时在线，可单独在线（通过系统参数配置）。
-9. 支持代码生成（开发中）。
+9. 支持代码生成。
 10. 文件，短信，缓存，邮件等，利用接口封装，方便拓展。
 11. 文件默认使用本地文件，短信默认使用阿里云sms，缓存默认使用内存缓存。
 
