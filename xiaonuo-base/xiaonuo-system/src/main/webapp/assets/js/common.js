@@ -30,6 +30,11 @@ layui.config({  // common.js是配置layui扩展模块的目录，每个页面�
     var admin = layui.admin;
     var xnUtil = layui.xnUtil;
     var table = layui.table;
+    //没有默认主题时，设置默认主题为红色
+    var defaultTheme = admin.getTempData('defaultTheme', true);
+    if(defaultTheme === undefined) {
+        admin.changeTheme('theme-red');
+    }
     //表格重载时ajaxSuccessBefore无法捕获ajax结果，使用此处判断
     $.ajaxSetup({
         timeout : 10000, //超时时间设置，单位毫秒，默认10秒
