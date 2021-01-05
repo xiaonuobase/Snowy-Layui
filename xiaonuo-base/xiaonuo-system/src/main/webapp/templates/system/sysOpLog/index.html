@@ -38,10 +38,10 @@
                             <select name="success"></select>
                         </div>
                     </div>
-                    <div class="layui-inline form-search-show-expand">
+                    <div class="layui-inline">
                         <label class="layui-form-label">操作时间</label>
                         <div class="layui-input-inline">
-                            <input type="text" class="layui-input" name="opDate" id="opDate" placeholder="请选择操作时间">
+                            <input id="startEndTime" class="layui-input icon-date" placeholder="选择日期范围" autocomplete="off"/>
                         </div>
                     </div>
                     <div class="layui-inline">&emsp;
@@ -51,8 +51,6 @@
                         <button type="reset" class="layui-btn layui-btn-primary icon-btn">
                             <i class="layui-icon">&#xe669;</i>重置
                         </button>
-                        <a class="layui-btn form-search-expand" search-expand>
-                            展开 <i class="layui-icon layui-icon-down"></i></a>
                     </div>
                 </div>
             </form>
@@ -82,10 +80,12 @@
         var xnUtil = layui.xnUtil;
         var laydate = layui.laydate;
 
+        /* 渲染时间选择 */
         laydate.render({
-            elem: '#opDate'
-            ,type: 'datetime'
-            ,range: true
+            elem: '#startEndTime',
+            type: 'date',
+            range: '~',
+            trigger: 'click'
         });
 
         // 渲染字典下拉
@@ -123,7 +123,8 @@
 
         /* 表格搜索 */
         form.on('submit(tableSearch)', function (data) {
-            insTb.reload({where: switchingOpDate(data), page: {curr: 1}});
+            xnUtil.handleRangeDateSelectResult(data, '#startEndTime', 'searchBeginTime', 'searchEndTime');
+            insTb.reload({where: data.field, page: {curr: 1}});
             return false;
         });
 
@@ -161,20 +162,6 @@
                 });
             }
         });
-
-        /* 查询参数组装 */
-        function switchingOpDate (data) {
-            if (data.field.opDate !== '') {
-                var date = data.field.opDate.split(" - ");
-                data.field.searchBeginTime = date[0]
-                data.field.searchEndTime = date[1]
-                delete data.field.opDate
-            } else {
-                data.field.searchBeginTime = ''
-                data.field.searchEndTime = ''
-            }
-            return data.field
-        }
     });
 </script>
 </body>
