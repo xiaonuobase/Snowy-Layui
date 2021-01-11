@@ -3,6 +3,7 @@ layui.config({  // common.js是配置layui扩展模块的目录，每个页面�
     version: '318',   // 更新组件缓存，设为true不缓存，也可以设一个固定值
     base: getProjectUrl() + 'assets/module/',
     baseServer: getProjectUrl(),
+    pageTabs: false,  // 默认关闭多标签
     // 请求完成后预处理
     ajaxSuccessBefore: function (res, url, obj) {
         if(obj.param.dataType === "html") {
