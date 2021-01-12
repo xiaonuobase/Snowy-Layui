@@ -46,6 +46,10 @@
 
 * 账号密码：superAdmin/123456，地址：https://layui.xiaonuo.vip
 
+### 在线文档
+
+* https://doc.xiaonuo.vip
+
 ### 效果图
 
 <table>
